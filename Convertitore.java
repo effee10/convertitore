@@ -13,46 +13,42 @@ import javafx.geometry.Insets;
 
 public class Convertitore extends Application {
 
-	TextField tNum = new TextField();
+	TextField tNumero = new TextField();
 	TextField tBaseIn = new TextField();
 	TextField tBaseOut = new TextField();
 	
 	Label lRis = new Label("result");
 	
-	public void start(Stage stage) {
+	public void start(Stage finestra) {
 
-		GridPane grid = new GridPane();
+		GridPane griglia = new GridPane();
 
-		grid.setHgap(10);
-		grid.setVgap(10);
-		grid.setPadding(new Insets(10));
+		griglia.setHgap(10);
+		griglia.setVgap(10);
+		griglia.setPadding(new Insets(10));
 
 		Button pConverti = new Button("converti");
 		pConverti.setOnAction(e -> converti());
 
-		grid.add(new Label("Numero da convertire"), 0, 0);
-		grid.add(tNum, 0, 1);
+		griglia.add(new Label("Numero da convertire"), 0, 0);
+		griglia.add(tNumero, 0, 1);
+		griglia.add(new Label("Base in"), 0, 2);
+		griglia.add(tBaseIn, 0, 3);
+		griglia.add(new Label("Base out"), 0, 4);
+		griglia.add(tBaseOut, 0, 5);
+		griglia.add(lRis, 0, 6);
+		griglia.add(pConverti, 0, 7);
 
-		grid.add(new Label("Base in"), 0, 2);
-		grid.add(tBaseIn, 0, 3);
+		Scene scene = new Scene(griglia);
 
-		grid.add(new Label("Base out"), 0, 4);
-		grid.add(tBaseOut, 0, 5);
-
-		
-		grid.add(lRis, 0, 6);
-		grid.add(pConverti, 0, 7);
-
-		Scene scene = new Scene(grid);
-
-		stage.setScene(scene);
-		stage.setTitle("Convertitore");
-		stage.show();
+		finestra.setScene(scene);
+		finestra.setTitle("Convertitore");
+		finestra.show();
 	}
 
 	public void converti() {
 		
-		String num = tNum.getText();
+		String num = tNumero.getText();
 		
 		int baseIn = Integer.parseInt(tBaseIn.getText());
 		int baseOut = Integer.parseInt(tBaseOut.getText());
@@ -88,6 +84,7 @@ public class Convertitore extends Application {
 		launch(args);
 	}
 	
+// 777 su ogni cosa
 
 }
 
